@@ -25,6 +25,7 @@
                 method: :get, class: 'btn btn-primary'
                 = link_to 'Delete', admin_conference_schedule_path(@conference.short_title, schedule.id),
                 method: :delete, class: 'btn btn-danger', data: { confirm: "Do you really want to delete Schedule #{schedule.id}?" }
+                
 .row
   .col-md-12.text-right
     = link_to 'Add Schedule', admin_conference_schedules_path(@conference.short_title),
