@@ -9,11 +9,7 @@ module Admin
     load_resource :selected_schedule, through: :program, singleton: true
     load_resource :venue, through: :conference, singleton: true
 
-<<<<<<< HEAD
-   
-=======
     def index; end
->>>>>>> parent of 0f41508... Fixed schedule creation when there is no room
 
     def create
       if @schedule.save
