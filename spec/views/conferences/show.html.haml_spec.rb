@@ -1,4 +1,5 @@
 require 'spec_helper'
+puts "views end",User.all.count
 describe 'conferences/show.html.haml' do
   let!(:conference) { create(:full_conference) }
 

@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+puts User.all.count
 describe Admin::ConferencesController do
 
   # It is necessary to use bang version of let to build roles before user
@@ -7,6 +7,7 @@ describe Admin::ConferencesController do
   let!(:organizer_role) { Role.find_by(name: 'organizer', resource: conference) }
 
   let(:organizer) { create(:user, role_ids: organizer_role.id) }
+  puts organiser.name
   let(:organizer2) { create(:user, email: 'organizer2@email.osem', role_ids: organizer_role.id) }
   let(:participant) { create(:user) }
 

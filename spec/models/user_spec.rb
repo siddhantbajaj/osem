@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+puts "models end",User.all.count
 describe User do
 
   let(:user_admin) { create(:admin) }

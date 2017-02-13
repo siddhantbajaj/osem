@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+puts User.all.count
 describe Admin::EventSchedulesController do
   let(:venue) { create(:venue) }
   let(:conference) { create(:conference, venue: venue) }
@@ -8,7 +8,7 @@ describe Admin::EventSchedulesController do
   let(:event_schedule) { create(:event_schedule, schedule: schedule)}
   let!(:organizer_role) { Role.find_by(name: 'organizer', resource: conference) }
   let(:organizer) { create(:user, role_ids: organizer_role.id) }
-
+  puts User.all.count
   context 'logged in as an organizer' do
     before :each do
       sign_in(organizer)

@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+puts "features end"
 feature Conference do
   let!(:conference) { create(:conference) }
   let!(:organizer_role) { Role.find_by(name: 'organizer', resource: conference) }

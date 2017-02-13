@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+puts "featuer 1",User.all.count
 feature 'Has correct abilities' do
   # It is necessary to use bang version of let to build roles before user
   let(:conference1) { create(:full_conference) } # user is organizer
