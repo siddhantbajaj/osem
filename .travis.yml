@@ -25,4 +25,4 @@ before_script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
 script:
   - 'bundle exec rubocop -Dc .rubocop.yml'
-  - 'bundle exec rspec --color --format documentation'
+  - 'bundle exec rspec spec/controllers/admin/comments_controller_spec.rb --color --format documentation'

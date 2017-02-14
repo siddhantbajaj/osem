@@ -14,11 +14,11 @@ describe Admin::CommentsController, type: :controller do
     describe 'GET #index' do
         puts  "before test",User.all.count
       it 'renders the :index template' do
-        #puts  User.all.count,"1a"
+        puts  User.all.count,"1a"
         comment
         get :index
         expect(response).to redirect_to(user_session_path)
-        #puts  User.all.count,"1b"
+        puts  User.all.count,"1b"
       end
     end
   end
@@ -31,25 +31,25 @@ describe Admin::CommentsController, type: :controller do
     describe 'GET #index' do
       puts  "before test",User.all.count
       it 'populates a hash with comments' do
-        #puts  User.all.count,"2a"
+        puts  User.all.count,"2a"
         get :index
         expect(assigns(:comments)).to be_a(Hash)
         # assigns(:comments).first returns an array of first pair key-value from hash.
         # Calling again 'first' returns the key, meaning the Conference object.
         expect(assigns(:comments).first.first.title).to eq(comment.commentable.program.conference.title)
-        #puts  User.all.count,"2b"
+        puts  User.all.count,"2b"
       end
       it 'has status 200: OK' do
-        #puts  User.all.count,"3a"
+        puts  User.all.count,"3a"
         get :index
         expect(response).to have_http_status(:ok)
-        #puts  User.all.count,"3b"
+        puts  User.all.count,"3b"
       end
       it 'renders the :index template' do
-        #puts  User.all.count,"4a"
+        puts  User.all.count,"4a"
         get :index
         expect(response).to render_template(:index)
-        #puts  User.all.count,"4b"
+        puts  User.all.count,"4b"
       end
     end
   end
@@ -57,13 +57,13 @@ describe Admin::CommentsController, type: :controller do
   context 'logged in with any other role or normal user' do
     describe 'GET#index' do
       it 'requires organizer privileges' do
-        #puts  User.all.count,"5a"
+        puts  User.all.count,"5a"
         sign_in(participant)
         comment
         get :index
         expect(response).to redirect_to(root_path)
         expect(flash[:alert]).to match('You are not authorized to access this area!')
-        #puts  User.all.count,"5a"
+        puts  User.all.count,"5a"
       end
     end
   end
