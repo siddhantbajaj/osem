@@ -15,7 +15,7 @@ describe Admin::CommentsController, type: :controller do
         puts  "before test",User.all.count
       it 'renders the :index template' do
         puts  User.all.count,"1a"
-        comment
+        #comment
         get :index
         expect(response).to redirect_to(user_session_path)
         puts  User.all.count,"1b"
@@ -25,8 +25,8 @@ describe Admin::CommentsController, type: :controller do
 
   context 'logged in as admin, organizer or cfp' do
     before :each do
-      sign_in(organizer)
-      comment
+      #sign_in(organizer)
+      #comment
     end
     describe 'GET #index' do
       puts  "before test",User.all.count
@@ -58,8 +58,8 @@ describe Admin::CommentsController, type: :controller do
     describe 'GET#index' do
       it 'requires organizer privileges' do
         puts  User.all.count,"5a"
-        sign_in(participant)
-        comment
+        #sign_in(participant)
+        #comment
         get :index
         expect(response).to redirect_to(root_path)
         expect(flash[:alert]).to match('You are not authorized to access this area!')
