@@ -1,5 +1,5 @@
 RSpec.configure do |config|
-  config.before(:each) do
+  config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
     Rails.application.load_seed
   end

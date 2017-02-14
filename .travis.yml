@@ -23,6 +23,7 @@ before_script:
   - cp config/secrets.yml.example config/secrets.yml
   - mysql -u root -e 'create database osem_test;'
   - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - Rake::Task['factory_girl:lint'].invoke
 script:
   - 'bundle exec rubocop -Dc .rubocop.yml'
   - 'bundle exec rspec --color --format documentation'
