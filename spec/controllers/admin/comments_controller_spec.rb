@@ -1,5 +1,5 @@
 require 'spec_helper'
-puts  User.all.count,"one"
+
 describe Admin::CommentsController, type: :controller do
 
   # It is necessary to use bang version of let to build roles before user
@@ -11,6 +11,7 @@ describe Admin::CommentsController, type: :controller do
   let(:comment) { create(:comment, commentable_type: 'Event', commentable_id: event.id) }
 
   context 'not logged in user' do
+
     describe 'GET #index' do
         puts  "before test",User.all.count
       it 'renders the :index template' do
