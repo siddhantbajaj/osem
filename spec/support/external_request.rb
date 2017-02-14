@@ -5,6 +5,8 @@ WebMock.disable_net_connect!(allow_localhost: true, allow: /stripe.com/)
 RSpec.configure do |config|
   config.before(:each) do
     mock_commercial_request
+    puts "after commercial request",User.all.count
+
   end
 end
 

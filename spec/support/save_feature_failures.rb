@@ -13,5 +13,7 @@ RSpec.configure do |config|
     elsif File.exist?(example_filename)
       File.unlink(example_filename)
     end
+    puts "after file",User.all.count
+
   end
 end
