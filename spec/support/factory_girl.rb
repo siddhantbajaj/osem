@@ -6,6 +6,7 @@ RSpec.configure do |config|
     if ENV['OSEM_FACTORY_LINT'] != 'false'
       mock_commercial_request
       FactoryGirl.lint
+      DatabaseCleaner.clean_with(:truncation)
     end
   end
 
