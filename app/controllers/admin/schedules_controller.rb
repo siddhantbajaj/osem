@@ -9,7 +9,9 @@ module Admin
     load_resource :selected_schedule, through: :program, singleton: true
     load_resource :venue, through: :conference, singleton: true
 
-    def index; end
+    def index 
+      @rooms = @conference.venue.rooms if @conference.venue
+    end
 
     def create
       if @schedule.save
