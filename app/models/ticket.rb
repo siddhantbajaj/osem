@@ -1,6 +1,7 @@
 class Ticket < ActiveRecord::Base
   belongs_to :conference
   has_many :ticket_purchases, dependent: :destroy
+  has_many :physical_tickets, dependent: :destroy
   has_many :buyers, -> { distinct }, through: :ticket_purchases, source: :user
 
   has_paper_trail meta: { conference_id: :conference_id }

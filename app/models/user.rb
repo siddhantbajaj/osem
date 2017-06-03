@@ -6,6 +6,7 @@ end
 
 class User < ActiveRecord::Base
   rolify
+  has_one :physical_ticket, dependent: :destroy
   has_many :users_roles
   has_many :roles, through: :users_roles, dependent: :destroy
 
