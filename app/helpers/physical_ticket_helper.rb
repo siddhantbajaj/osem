@@ -1,0 +1,2 @@
+module PhysicalTicketHelper
+end

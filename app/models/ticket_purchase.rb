@@ -13,10 +13,12 @@ class TicketPurchase < ActiveRecord::Base
   delegate :price_cents, to: :ticket
   delegate :price_currency, to: :ticket
 
-  has_many :physical_tickets, dependent: :destroy
+  has_many :physical_tickets
 
   scope :paid, -> { where(paid: true) }
   scope :unpaid, -> { where(paid: false) }
+  scope :assigned, -> { where(assigned: true) }
+  scope :unassigned, -> { where(assigned: false) }
   scope :by_conference, ->(conference) { where(conference_id: conference.id) }
   scope :by_user, ->(user) { where(user_id: user.id) }
 
