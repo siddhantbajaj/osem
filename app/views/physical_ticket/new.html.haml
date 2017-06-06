@@ -1,0 +1,26 @@
+.container
+  - if !@unassigned_ticket_purchases.empty? 
+    .row
+      .col-md-12
+        .page-header
+          %h2
+            Assign Users To Tickets
+          .text-muted
+            Who is this ticket for?
+
+    .row
+      .col-md-6.col-md-offset-3
+        = semantic_form_for :user, url: conference_physical_ticket_index_path, method: :post do |u|
+
+          = u.label "Assign user by email for Ticket #{@unassigned_ticket_purchases.first.assigned_tickets_count + 1} of #{@unassigned_ticket_purchases.first.quantity} (#{@unassigned_ticket_purchases.first.title}): "
+          = u.hidden_field :ticket_purchase_id, value: @unassigned_ticket_purchases.first.id
+          .input-group
+            = u.input :email, label: false, placeholder: "User's email"
+            .input-group-btn
+              = u.submit 'Assign', id: 'user-add', class: 'btn btn-primary'
+
+  .row
+    .col-md-12
+      #users_area
+        = render partial: 'tickets', locals: { tickets: @physical_tickets }
+    

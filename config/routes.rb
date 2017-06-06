@@ -123,7 +123,7 @@ Osem::Application.routes.draw do
     resources :tickets, only: [:index]
     resources :ticket_purchases, only: [:create, :destroy]
     resources :payments, only: [:index, :new, :create]
-    resources :physical_ticket, only: [:index, :new, :create]
+    resources :physical_ticket, only: [:show, :new, :create]
     resource :subscriptions, only: [:create, :destroy]
     resource :schedule, only: [:show] do
       member do

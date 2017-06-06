@@ -62,4 +62,16 @@ class TicketPurchase < ActiveRecord::Base
     purchase.quantity = quantity if quantity > 0
     purchase
   end
+
+  def update_assigned
+    if self.quantity == self.physical_tickets.count
+      self.assigned = true
+      self.save
+    end
+  end
+
+  def assigned_tickets_count
+    self.physical_tickets.count
+  end
+
 end
